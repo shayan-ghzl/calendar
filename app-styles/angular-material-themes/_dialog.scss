@@ -1,0 +1,5 @@
+@use '@angular/material' as mat;
+@use "themes";
+
+@include mat.dialog-theme(themes.$theme);
+// --------------------------------

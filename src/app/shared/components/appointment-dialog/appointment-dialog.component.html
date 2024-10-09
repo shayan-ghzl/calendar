@@ -1,0 +1,29 @@
+<!-- Dialog Header -->
+<div mat-dialog-title>
+    <h4>Appointment Details</h4>
+</div>
+<!-- Dialog Content -->
+<mat-dialog-content>
+    <div class="inner-contetnt">
+        <mat-form-field appearance="outline" floatLabel="always" subscriptSizing="dynamic">
+            <mat-label>title</mat-label>
+            <input matInput [(ngModel)]="title" appAutoFocus>
+        </mat-form-field>
+
+        <div class="time">
+            <mat-form-field appearance="outline" floatLabel="always" subscriptSizing="dynamic">
+                <mat-label>from time</mat-label>
+                <input readonly matInput placeholder="00:00" [value]="from">
+            </mat-form-field>
+            <mat-form-field appearance="outline" floatLabel="always" subscriptSizing="dynamic">
+                <mat-label>to time</mat-label>
+                <input readonly matInput placeholder="00:00" [value]="to">
+            </mat-form-field>
+        </div>
+    </div>
+</mat-dialog-content>
+<!-- Dialog Actions -->
+<div mat-dialog-actions align="end">
+    <button type="button" mat-dialog-close mat-stroked-button color="primary">Cancel</button>
+    <button type="button" mat-flat-button color="primary" (click)="submit()" [disabled]="!title.trim() || !from.trim() || !to.trim()">Submit</button>
+</div>

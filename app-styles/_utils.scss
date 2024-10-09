@@ -1,0 +1,55 @@
+@use "environments" as evn;
+
+@each $name, $value in evn.$spacing {
+    .margin-left-#{$name} {
+        margin-left: $value !important;
+    }
+
+    .margin-right-#{$name} {
+        margin-right: $value !important;
+    }
+
+    .margin-top-#{$name} {
+        margin-top: $value !important;
+    }
+
+    .margin-bottom-#{$name} {
+        margin-bottom: $value !important;
+    }
+
+    .margin-horizontal-#{$name} {
+        margin-left: $value !important;
+        margin-right: $value !important;
+    }
+
+    .margin-vertical-#{$name} {
+        margin-top: $value !important;
+        margin-bottom: $value !important;
+    }
+
+    .padding-left-#{$name} {
+        padding-left: $value !important;
+    }
+
+    .padding-right-#{$name} {
+        padding-right: $value !important;
+    }
+
+    .padding-top-#{$name} {
+        padding-top: $value !important;
+    }
+
+    .padding-bottom-#{$name} {
+        padding-bottom: $value !important;
+    }
+
+    .padding-horizontal-#{$name} {
+        padding-left: $value !important;
+        padding-right: $value !important;
+    }
+
+    .padding-vertical-#{$name} {
+        padding-top: $value !important;
+        padding-bottom: $value !important;
+    }
+}

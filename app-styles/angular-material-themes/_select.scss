@@ -1,0 +1,6 @@
+@use '@angular/material' as mat;
+@use "themes";
+
+@include mat.select-theme(themes.$theme);
+@include mat.option-theme(themes.$theme);
+// --------------------------------

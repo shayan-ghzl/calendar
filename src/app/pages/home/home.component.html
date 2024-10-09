@@ -1,0 +1,45 @@
+<header class="app-header">
+    <button mat-stroked-button (click)="resetCalendar(calendar)">
+        Today
+    </button>
+    <span>{{fullDate}}</span>
+</header>
+
+<main role="grid">
+    <section class="calendar">
+        <mat-card>
+            <mat-calendar #calendar [(selected)]="today" (selectedChange)="onDateSelect($event)" />
+        </mat-card>
+        <div class="about-me">
+            <ul>
+                <li>You can modify each event with just a double click on it.</li>
+                <li>Author: Shayan Ghazali</li>
+                <li>its about 2 month since my younger brother has moved to munich and it motivates me to work harder than before and i'm looking forward to working with you in both on-site or remote condition.</li>
+                <li>my younger border phone number: <a href="tel:+4917671068280">+4917671068280</a> (he lives in muniche)</li>
+                <li>my phone number: <a href="tel:+989353728642">+989353728642</a> (i am currently living in <a target="_blank" href="https://en.wikipedia.org/wiki/Isfahan">Isfahan, Iran</a>)</li>
+            </ul>
+        </div>
+    </section>
+
+    <section class="day-overview">
+        <header>
+            <span class="week">{{week}}</span>
+            <span class="day">{{day}}</span>
+        </header>
+        <div class="scroll-grid-container" role="grid">
+            <div class="ruler">
+                @for (hour of hours; track $index) {
+                    <span class="hour">{{hour}}</span>
+                }
+            </div>
+            <div class="board" (click)="addCardComponent($event)">
+                @for (appointment of (appointments | todayAppointments : today); track $index) {
+                    <app-appointment (removed)="appointments.splice($index, 1)" cdkDragBoundary=".board" [style.transform]="'translateY(' + appointment.top + 'px)'" [from]="appointment.from" [to]="appointment.to" [(title)]="appointment.title" cdkDrag cdkDragLockAxis="y" (cdkDragEnded)="dragEnded(appointment, apmnt.elementRef.nativeElement)" #apmnt />
+                }
+                @for (hourLine of hourLines; track $index) {
+                    <div class="hour-line"></div>
+                }
+            </div>
+        </div>
+    </section>
+</main>

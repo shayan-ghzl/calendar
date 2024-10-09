@@ -1,0 +1,32 @@
+@use "../../../../../app-styles/environments" as env;
+
+:host {
+    --mat-dialog-headline-padding: 16px;
+    --heading-4-font-size: 20px;
+    --heading-4-font-weight: 500;
+    --heading-4-margin-bottom: 0;
+
+    .mat-mdc-dialog-title {
+        border-bottom: 1px solid env.$border-color;
+
+        &::before {
+            display: none;
+        }
+    }
+    .mat-mdc-dialog-actions {
+        border-top: 1px solid env.$border-color;
+
+    }
+
+    .mat-mdc-dialog-content {
+        --mat-dialog-with-actions-content-padding: 16px;
+    }
+}
+.inner-contetnt {
+    padding: 16px 0;
+}
+.time {
+    margin-top: 32px;
+    display: flex;
+    gap: 16px;
+}

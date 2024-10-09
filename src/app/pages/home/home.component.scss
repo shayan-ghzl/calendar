@@ -1,0 +1,100 @@
+@use "../../../../app-styles/environments" as env;
+
+header.app-header {
+    display: flex;
+    align-items: center;
+    gap: 48px;
+    border-bottom: 1px solid env.$border-color;
+    padding: 8px var(--tablet-padding-x, #{env.$tablet-padding-x});
+    height: 64px;
+}
+main {
+    display: grid;
+    grid-template-columns: 256px 1fr;
+    gap: var(--tablet-padding-x, #{env.$tablet-padding-x});
+    height: calc(100vh - 64px);
+    padding: 0 var(--tablet-padding-x, #{env.$tablet-padding-x});
+
+    .calendar {
+        padding: 8px 0;
+    }
+    .day-overview {
+        border-left: 1px solid env.$border-color;
+        padding: 8px 0;
+    }
+}
+.day-overview {
+    header {
+        display: inline-block;
+        margin-top: 4px;
+        margin-left: 6px;
+        padding-bottom: 12px;
+
+        .week {
+            display: block;
+            text-align: center;
+            margin-bottom: 6px;
+        }
+        .day {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 46px;
+            height: 46px;
+            border-radius: 50%;
+            background-color: env.$primary-color;
+            color: env.$white;
+        }
+    }
+    .scroll-grid-container {
+        display: grid;
+        height: calc(100vh - 164px);
+        grid-template-columns: 60px 1fr;
+        padding: 8px 0;
+        overflow: hidden auto;
+    }
+    .ruler {
+        text-align: right;
+
+        .hour {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 48px;
+            padding-right: 8px;
+            color: env.$text-secondary-color;
+            font-size: 10px;
+        }
+    }
+    .board {
+        position: relative;
+        padding-right: 8px;
+
+        .hour-line {
+            height: 48px;
+            cursor: pointer;
+
+            &::before {
+                content: '';
+                display: block;
+                height: 1px;
+                width: 100%;
+                background-color: env.$border-color;
+                transform: translateY(24px);
+            }
+        }
+    }
+}
+.about-me {
+    margin: 24px 0;
+
+    ul {
+        list-style: disc;
+        line-height: 1.5;
+        font-size: 12px;
+    }
+
+    li:not(:last-child) {
+        margin-bottom: 12px;
+    }
+}

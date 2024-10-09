@@ -1,0 +1,9 @@
+@use '@angular/material' as mat;
+@use "themes";
+
+@include mat.form-field-theme(themes.$theme);
+
+
+$theme: mat.m2-define-light-theme((density: -3));
+@include mat.form-field-density($theme);
+// --------------------------------
